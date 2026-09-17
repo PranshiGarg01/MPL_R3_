@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treasure Hunt - Start</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <div class="floating-elements" aria-hidden="true">
+    <svg class="treasure-symbol compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 3v18M3 12h18M12 7l2 5-2 5-2-5 2-5z"/>
+    </svg>
+    <svg class="treasure-symbol key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="7" cy="12" r="4"/>
+      <path d="M11 12h9v3h-2v-3h-2v2h-2v-2"/>
+    </svg>
+    <svg class="treasure-symbol astrolabe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="9"/>
+      <circle cx="12" cy="12" r="5"/>
+      <path d="M12 3v18M3 12h18"/>
+    </svg>
+    <svg class="treasure-symbol map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M18 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2z"/>
+      <path d="M8 7h8M8 11h5M15 15l2 2m0-2l-2 2"/>
+    </svg>
+    <svg class="treasure-symbol hourglass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 22h14M5 2h14M17 22v-4.172a2 2 0 00-.586-1.414L13.414 13.414a2 2 0 010-2.828l3-3A2 2 0 0017 6.172V2M7 22v-4.172a2 2 0 01.586-1.414l3-3a2 2 0 000-2.828l-3-3A2 2 0 017 6.172V2"/>
+  </svg>
+  </div>
+
+  <div class="bg-glow"></div>
+  <div class="hud-corner tl"></div><div class="hud-corner tr"></div>
+  <div class="hud-corner bl"></div><div class="hud-corner br"></div>
+
+  <header class="nav-strip">
+    <span class="nav-logo">
+      <img src="./assets/mpl-logo.png" alt="Event logo" />
+    </span>
+    <span class="nav-title">TREASURE HUNT</span>
+    <span class="nav-logo">
+      <img src="./assets/siam-logo.png" alt="Chapter logo" />
+    </span>
+  </header>
+
+  <main class="container">
+
+    <div class="clue-box" id="sealStage">
+      <div class="wax-seal" id="waxSeal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+          <circle cx="12" cy="12" r="9.5"/>
+          <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+          <path d="M12 4v3.2M12 16.8V20M4 12h3.2M16.8 12H20M6.34 6.34l2.26 2.26M15.4 15.4l2.26 2.26M17.66 6.34l-2.26 2.26M8.6 15.4l-2.26 2.26"/>
+        </svg>
+      </div>
+      <h1>The Hunt Awaits</h1>
+      <p class="riddle-text">An ancient trail lies hidden across these grounds. Break the seal to begin your quest.</p>
+      <button class="button-outer" id="breakSealBtn" onclick="breakSeal()">
+        <span class="button-face">Break the Seal</span>
+      </button>
+    </div>
+
+    <div class="clue-box" id="pathStage" hidden>
+      <h1>Select Path</h1>
+      <p class="riddle-text">Choose your assigned route to begin.</p>
+      <div class="path-grid">
+        <a href="./path1/clue1.html" class="button-outer">
+          <span class="button-face">Path 01</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function breakSeal() {
+      const seal = document.getElementById('waxSeal');
+      const btn  = document.getElementById('breakSealBtn');
+      if (seal) seal.classList.add('cracked');
+      if (btn) btn.disabled = true;
+
+      setTimeout(() => {
+        const sealStage = document.getElementById('sealStage');
+        const pathStage = document.getElementById('pathStage');
+        if (sealStage) sealStage.hidden = true;
+        if (pathStage) {
+          pathStage.hidden = false;
+          pathStage.classList.add('stage-fade-in');
+        }
+      }, 700);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Path 1 - Clue 01</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="hud-corner tl"></div><div class="hud-corner tr"></div>
+  <div class="hud-corner bl"></div><div class="hud-corner br"></div>
+
+  <header class="nav-strip">
+    <span class="nav-logo">
+      <img src="../assets/mpl-logo.png" alt="Event logo" />
+    </span>
+    <span class="nav-title">PATH 01 - CLUE 01</span>
+    <span class="nav-logo">
+      <img src="../assets/siam-logo.png" alt="Chapter logo" />
+    </span>
+  </header>
+
+  <main class="container">
+    <div class="clue-box">
+      <h1>Clue 04</h1>
+
+      <div class="progress-dots" aria-hidden="true">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <div class="clue-media">
+        <img src="./media/clue4.jpg" alt="Clue 4 Visual" class="clue-img" />
+      </div>
+
+      <div class="ornament-divider" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z"/></svg>
+      </div>
+
+      <p class="riddle-text">ANNA AUDI</p>
+
+      <input type="text" id="userInput" placeholder="Enter answer..." autocomplete="off" />
+
+      <button class="button-outer" onclick="validateStep('path1', 'clue4')">
+        <span class="button-face">Submit Answer</span>
+      </button>
+
+      <p id="feedbackMsg" class="message"></p>
+    </div>
+  </main>
+
+  <script src="../js/config.js"></script>
+</body>
+</html
